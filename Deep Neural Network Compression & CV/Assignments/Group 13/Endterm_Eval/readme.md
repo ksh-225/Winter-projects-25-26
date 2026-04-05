@@ -36,11 +36,11 @@ pip install torch torchvision numpy scikit-learn
 
 To run the full end-to-end pipeline (Training -> Pruning -> Quantization -> Huffman):
 
-**Note**: ⚠️ This process includes fine-tuning epochs to recover accuracy loss after pruning and may take several minutes on an M1/M2 Mac.
+⚠️ **Note**: This process includes fine-tuning epochs to recover accuracy loss after pruning and may take several minutes on an M1/M2 Mac.
 ```bash
 python3 main.py
 ```
-If you have already run the pipeline and have a compressed.npz file in the compressed_models/ folder, you can **skip retraining and view the final evaluation metrics** instantly:
+❗️**The below exection is much Faster** : If you have already run the pipeline and have a compressed.npz file in the compressed_models/ folder, you can **skip retraining and view the final evaluation metrics** instantly:
 
 ```bash
 python3 print_results.py
