@@ -46,17 +46,19 @@ Part 5 — How to test
 ```bash
 python test.py
 ```
-This script evaluates the trained MAML model against the baseline on the 20 unseen test tasks. It prints the average 5-shot and 20-shot mean squared error (converted to dB) to the console, and generates a visual comparison curve saved as results/plot_comparison.png.
+This script evaluates the trained MAML and Reptile models against the baseline on the 20 unseen test tasks. It prints the average 5-shot and 20-shot mean squared error (converted to dB) to the console, and generates a visual comparison curve saved as results/plot_comparison.png.
 
 
-Part 6 — Your resultsThe table below compares the performance of the MAML model against a basic model trained from scratch on unseen test tasks. (Note: Lower dB indicates better performance/lower error).
+Part 6 — The table below compares the performance of MAML and Reptile against a basic model trained from scratch on unseen test tasks. (Note: Lower dB indicates better performance/lower error).
 
 
-| Method                 | 5-shot Error | 20-shot Error |
-|------------------------|--------------|---------------|
-| Basic model (scratch)  | -12.44 dB    | -16.88 dB     |
-| Your MAML model        | -14.38 dB    | -15.84 dB     |
+| Method | 5-shot Error | 20-shot Error |
+| :--- | :--- | :--- |
+| **Basic model (scratch)** | -11.55 dB | -17.05 dB |
+| **MAML** | **-14.56 dB** | **-16.92 dB** |
+| **Reptile** | -12.63 dB | -14.48 dB |
 
 
-As shown by the 5-shot error, the MAML model adapts significantly faster to new wireless environments with very limited data compared to a network initialized from random weights.
+Conclusions:
+As shown by the 5-shot error, both meta-learning methods (MAML and Reptile) adapt faster to new wireless environments with very limited data compared to a network initialized from random weights. MAML shows the strongest early adaptation advantage, beating the baseline by a full 3 dB at the 5-shot mark!
 
