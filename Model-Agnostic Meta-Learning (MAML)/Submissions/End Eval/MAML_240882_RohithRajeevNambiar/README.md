@@ -10,8 +10,8 @@ The model learns a shared initialization that can quickly adapt to a new wireles
 ## 2. How to set it up
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
-cd your-repo/end_term
+git clone https://github.com/electricalengineersiitk/Winter-projects-25-26.git
+cd "Winter-projects-25-26/Model-Agnostic Meta-Learning (MAML)/Submissions/End Eval/MAML_240882_RohithRajeevNambiar"
 pip install -r requirements.txt
 ```
 
@@ -31,7 +31,7 @@ Each task simulates a different wireless environment with:
 
 Each task contains:
 
-* Support set (5 samples) for adaptation
+* Support set (k samples) for adaptation (Plots are drawn for k = 20, 20-shot)
 * Query set (50 samples) for evaluation
 
 It generates:
@@ -81,18 +81,35 @@ This script:
 It outputs:
 
 * Average loss values
-* Comparison plot saved as `results/plot_comparison.png`
+* Comparison plot saved as `results/plot_comparison_db.png`
 
 ---
 
+```markdown
 ## 6. Results
 
-| Method                  | Performance |
-| ----------------------- | ----------- |
-| Baseline (from scratch) | Higher loss |
-| MAML (FOMAML)           | Lower loss  |
+The model is evaluated using **NMSE (in dB)** across different adaptation steps for both 5-shot and 20-shot settings.
 
-MAML consistently achieves lower error with fewer adaptation steps, demonstrating faster learning and better generalization across wireless environments.
+### 5-shot Results
+
+| Adaptation Steps | MAML (dB) | Baseline (dB) |
+| ---------------- | --------- | ------------- |
+| 1                | 5.42      | 5.63          |
+| 3                | 3.85      | 4.97          |
+| 5                | 3.06      | 4.51          |
+| 10               | 2.48      | 3.27          |
+
+### 20-shot Results
+
+| Adaptation Steps | MAML (dB) | Baseline (dB) |
+| ---------------- | --------- | ------------- |
+| 1                | 17.38     | 3.81          |
+| 3                | -0.58     | 1.66          |
+| 5                | -3.00     | -1.43         |
+| 10               | -4.59     | -3.79         |
+
+MAML achieves lower NMSE than the baseline in both 5-shot and 20-shot settings, demonstrating faster adaptation.
+
 
 ---
 
